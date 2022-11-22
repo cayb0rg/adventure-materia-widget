@@ -21,9 +21,11 @@
 
 		<!-- MAIN WIDGET SCRIPT -->
 		<script src="assets/score-assets/scoreScreen.js"></script>
+        <script src="assets/legacyQsetSrv.js"></script>
+        
 	</head>
-	<body ng-app="AdventureScorescreen">
-		<div class="content-frame" ng-controller="AdventureScoreCtrl">
+	<body ng-app="Adventure" ng-controller="AdventureScoreCtrl">
+		<div class="content-frame">
 			<section class="inventory" ng-if="itemSelection[0]">
                 <h1 class="inventory-header" ng-click="toggleInventoryDrawer()" ng-class="{'closed': !showInventory}">FINAL INVENTORY <i class="arrow-top"></i></h1>
                 <div class="inventory-content" ng-show="showInventory">
@@ -47,8 +49,14 @@
                     </div>
                 </div>
             </section>
-            <h1 class="responses-heading">RESPONSES:</h1>
-            <section class="table">
+            <h1 class="responses-heading" ng-if="scoreFinal[0]">Where Did You End Up?</h1>
+            <section class="table" ng-if="scoreFinal[0]">
+                <div ng-repeat="score in scoreFinal">
+                    {{score}}
+                </div>
+            </section>
+            <h1 class="responses-heading" ng-if="itemSelection[0]">RESPONSES:</h1>
+            <section class="table" ng-if="itemSelection[0]">
                 <div class="table-header">
                     <div></div>
                     <div>The Question</div>

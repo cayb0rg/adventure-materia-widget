@@ -37,7 +37,7 @@ Adventure.controller 'AdventureController', ['$scope','$rootScope','legacyQsetSr
 		start: (instance, qset, version = '1') ->
 			#Convert an old qset prior to running the widget
 			if parseInt(version) is 1 then qset = JSON.parse legacyQsetSrv.convertOldQset qset
-
+			console.log(qset)
 			$scope.$apply ->
 				$scope.title = instance.name
 				$scope.qset = qset
@@ -416,7 +416,7 @@ Adventure.controller 'AdventureController', ['$scope','$rootScope','legacyQsetSr
 	_logProgress = ->
 
 		if $scope.selectedAnswer isnt null # TODO is this check required??
-			Materia.Score.submitQuestionForScoring $scope.question.materiaId, $scope.selectedAnswer
+			Materia.Score.submitQuestionForScoring $scope.question.materiaId, $scope.selectedAnswer, $scope.question.options.id
 
 	_end = ->
 		if $scope.scoringDisabled

@@ -80,7 +80,7 @@ class Score_Modules_Adventure extends Score_Module
 		return [
 			'data' => [
 				$this->get_ss_question($log, $q),
-				$q->id,
+				$q->options->id,
 				$this->get_ss_answer($log, $q)
 			],
 			'data_style'    => ['question', 'question_id', 'response'],
@@ -117,7 +117,7 @@ class Score_Modules_Adventure extends Score_Module
 					break;
 
 				case Session_Log::TYPE_FINAL_SCORE_FROM_CLIENT:
-					$destination_table[] = [
+					$details[] = [
 						'data'          => [$log->text],
 						'data_style'    => ['node_text'],
 						'score'         => $this->check_answer($log),
