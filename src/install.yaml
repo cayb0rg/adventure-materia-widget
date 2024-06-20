@@ -9,6 +9,7 @@ general:
   is_qset_encrypted: Yes
   is_answer_encrypted: Yes
   is_storage_enabled: No
+  is_generable: No
   api_version: 2
 files:
   creator: creator.html
@@ -34,3 +35,4 @@ meta_data:
     An advanced flexible scenario-building tool.
   accessibility_keyboard: Full
   accessibility_reader: Full
+  generation_prompt: A node can have the following types - "mc", "shortanswer", "hotspot", "end", "narrative", or "blank" - but nodes cannot come after an end node. This is stored in the "type" field of the node's options. Every node must have a 'nodeId' attribute. Also, make sure that answer's 'link' attributes point to existing nodes with the corresponding nodeId. If a there does not exist a node with the corresponding nodeId, create a new node with that nodeId branched off the current node. Finally, make sure to include the 'options' attribute in the top level of the JSON with the correct 'nodeCount', etc.
